@@ -8,7 +8,7 @@
 # This function greets the user and prompts the user to select a level difficulty.
 def begin_madhat_madlib():
     print '\n'+ "Welcome to the Mad Hatter's Madlib Game!" +'\n'
-    print "Fill in the blanks with lyrics me Mad Hatter's favorite Beatles' songs!" + '\n'
+    print "Fill in the blanks with lyrics from me Mad Hatter's favorite Beatles' songs!" + '\n'
     print "Answers are case sensitive, so watch for PROPER Nouns and the beginning of sentences!" + '\n'
     check_input = True
     while check_input is True:
