@@ -3,20 +3,20 @@
 #   -At the beginning of the game, immediately after running the program, user is prompted
 #       to select a difficulty level from easy / medium / hard.
 #   -Once user selects a level, game displays a fill-in-the blank and a prompt for the user
-#       to fill in the first blank, and subsequently plays a full game of madlibs.
+#       to fill in the first blank, and subsequently plays a full game of Madhat madlibs.
 
 # This function greets the user and prompts the user to select a level difficulty.
-def madhat_begin_game():
+def begin_madhat_madlib():
     print '\n'+ "Welcome to the Mad Hatter's Madlib Game!" +'\n'
-    print "Fill in the blanks with lyrics from my favorite Beatles' songs!!" + '\n'
-    print "Answers are case sensitive, so watch for proper Nouns and the beginning of sentences!" + '\n'
-    input_check = True
-    while input_check is True:
+    print "Fill in the blanks with lyrics me Mad Hatter's favorite Beatles' songs!" + '\n'
+    print "Answers are case sensitive, so watch for PROPER Nouns and the beginning of sentences!" + '\n'
+    check_input = True
+    while check_input is True:
         level_input = raw_input("Type in easy, medium or hard to select a difficulty: ")
         if level_input == 'easy' or level_input == 'medium' or level_input == 'hard':
             input_check= False
         else:
-            print '\n' + 'Invalid level selected. Please select easy, medium, or hard.' + '\n'
+            print '\n' + 'You selected an invalid level. Please select easy, medium, or hard.' + '\n'
     return level_input
 
 # This functions returns a problem string associated with the level difficulty the user selected.
@@ -68,10 +68,9 @@ def game_instructions(string,answers,blanks,strike,string_index):
 # Takes the number of incorrect guesses and tells the user if  they won or lost
 def win_or_lose(strike_count):
     if strike_count == 0:
-        print "\n" + "Wah. Wah. You lost! GAME OVER! Please try again." + "\n"
+        print "\n" + "Aw, shucks. Game over, you lost! Please try again." + "\n"
     else:
         print "\n" + "Congratulations, you won!" + "\n"
-
 
 # Inputs for functions and calling upon them in a dictionary:
 problem_dict ={'easy':
@@ -113,7 +112,7 @@ fill_in_blank =["___1___","___2___","___3___","___4___","___5___","___6___"]
 strike = 3
 string_index = 0
 
-level= madhat_begin_game()
+level= begin_madhat_madlib()
 problem_string = madlib_problem(level,problem_dict)
 answer_list = madhat_answers(level)
 string_one = problem_string.split()
@@ -122,5 +121,5 @@ x = game_instructions(string_one,answer_list,fill_in_blank,strike,string_index)
 
 win_or_lose(x)
 
-#prevents the program from closing out automatically
+# This prevents the program from closing out automatically
 x = raw_input("Hit return to exit:")
