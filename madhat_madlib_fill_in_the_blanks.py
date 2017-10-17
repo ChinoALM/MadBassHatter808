@@ -10,11 +10,11 @@ def begin_madhat_madlib():
     print '\n'+ "Welcome to the Mad Hatter's Madlib Game!" +'\n'
     print "Fill in the blanks with lyrics from me Mad Hatter's favorite Beatles' songs!" + '\n'
     print "Answers are case sensitive, so watch for PROPER Nouns and the beginning of sentences!" + '\n'
-    check_input = True
-    while check_input is True:
+    input_check = True
+    while input_check is True:
         level_input = raw_input("Type in easy, medium or hard to select a difficulty: ")
         if level_input == 'easy' or level_input == 'medium' or level_input == 'hard':
-            check_input = False
+            input_check = False
         else:
             print '\n' + 'You selected an invalid level. Please select easy, medium, or hard.' + '\n'
     return level_input
@@ -53,7 +53,7 @@ def game_instructions(string,answers,blanks,strike,string_index):
                 user_answer = raw_input("You have " + str(strike) + " attempts left. Please enter your next guess: ")
                 correct = word_in_pos(user_answer,answers)
                 if correct != None:
-                    print "\n"+ "Congratulations, you are correct!" + "\n"
+                    print "\n"+ "Congratulations, you are correct! Further down the rabbit hole we go!" + "\n"
                     string[string_index] = user_answer
                     string_index = string_index+1
                     break
@@ -112,7 +112,7 @@ strike = 3
 string_index = 0
 
 level= begin_madhat_madlib()
-problem_string = madlib_problem(level,problem_dict)
+problem_string = madhat_problem(level,problem_dict)
 answer_list = madhat_answers(level)
 string_one = problem_string.split()
 
@@ -121,4 +121,4 @@ x = game_instructions(string_one,answer_list,fill_in_blank,strike,string_index)
 win_or_lose(x)
 
 # Prevents program from closing automatically.
-x = raw_input("To exit me Mad Hatter's Madlib, please hit return:")
+x = raw_input("To exit this rabbit hole of me Mad Hatter's Madlib, please hit return:")
